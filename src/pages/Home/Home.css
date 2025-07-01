@@ -53,7 +53,7 @@
   background-color: #ff2a3c;
 }
 
-/* Sections (Intro, Featured Mix, Duo, Quick Links) */
+/* Sections */
 section {
   margin: 4rem 0;
   text-align: center;
@@ -68,41 +68,66 @@ section {
 .mix-embed {
   margin-top: 1rem;
   max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   aspect-ratio: 16 / 9;
 }
 
-.members-grid {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.member-card {
-  width: 220px;
+/* Meet the DJs */
+.meet-djs {
   text-align: center;
 }
 
-.member-card img {
+.dj-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.dj-card {
+  max-width: 300px;
+  background-color: #f8f8f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  /* Animation base state */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.dj-card.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dj-card:hover {
+  transform: translateY(-5px);
+}
+
+.dj-card img {
   width: 100%;
-  border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
 
-.member-card h3 {
-  margin-top: 0.75rem;
-  color: var(--color-accent);
+.dj-card h3 {
+  margin: 0.5rem 0 0.2rem;
+  color: var(--color-primary);
 }
 
-.member-card p {
-  font-size: 0.9rem;
+.dj-card p {
+  font-size: 0.95rem;
   color: #555;
+  line-height: 1.4;
 }
 
 /* Quick Links */
@@ -124,15 +149,10 @@ section {
   color: #fff;
 }
 
-/* 🌐 Mobile Optimizations */
+/* 🌐 Mobile */
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.5rem;
-  }
-
-  .members-grid {
-    flex-direction: column;
-    align-items: center;
   }
 
   .hero-buttons,

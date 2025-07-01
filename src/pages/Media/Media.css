@@ -31,19 +31,20 @@
 
 .photos-grid img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 4 / 3; /* keep consistent image frame */
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: block;
 }
 
 .photos-grid img:hover,
 .photos-grid img:focus {
   transform: scale(1.05);
-  outline: none;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  outline: 2px solid var(--color-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* VIDEO LIST */
@@ -70,7 +71,8 @@
   width: 100%;
   height: 360px;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  display: block;
 }
 
 /* Responsive */

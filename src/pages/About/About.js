@@ -22,7 +22,7 @@ export default function About() {
       </section>
 
       <section className="about-vision" aria-labelledby="vision-heading">
-        <h2 id="vision-heading">🚀 Our Vision</h2>
+        <h2 id="vision-heading">Our Vision</h2>
         <p>
           To push the boundaries of electronic music and create unforgettable experiences
           that connect people through the power of sound.

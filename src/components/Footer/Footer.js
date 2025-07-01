@@ -11,14 +11,14 @@ export default function Footer() {
           <p>
             Bookings: <a href="mailto:bookings@immortalduo.com">bookings@immortalduo.com</a>
           </p>
-          <p>Phone: +27 12 345 6789</p>
+          <p>Phone: +27 71 204 8992 / 76 485 8322</p>
         </div>
 
         <div className="footer-right">
           <h4>Follow Us</h4>
           <div className="social-icons">
             <a
-              href="https://facebook.com/immortalduo"
+              href="https://facebook.com/theimmortalduo"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Facebook"
@@ -26,7 +26,7 @@ export default function Footer() {
               <FaFacebookF />
             </a>
             <a
-              href="https://instagram.com/immortalduo"
+              href="https://instagram.com/theimmortalduo"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="Instagram"
@@ -34,7 +34,7 @@ export default function Footer() {
               <FaInstagram />
             </a>
             <a
-              href="https://tiktok.com/@immortalduo"
+              href="https://tiktok.com/@theimmortal_duo1"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="TikTok"

@@ -1,48 +1,72 @@
 :root {
-  --footer-bg: #111;
-  --footer-text: #ccc;
-  --footer-light: #999;
-  --footer-accent: #e63946;
-  --max-width: 1200px;
+  --font-family: 'Montserrat', sans-serif;
+  --color-accent: #ff3c5f;
+  --navbar-footer-bg: #111;
+  --text-color: #fff;
+  --content-max-width: 1200px;
+  --content-padding: 1rem 2rem;
+  --border-radius-top: 16px 16px 0 0;
 }
 
+/* Footer Styling */
 .footer {
-  background-color: var(--footer-bg);
-  color: var(--footer-text);
+  background-color: var(--navbar-footer-bg);
+  color: var(--text-color);
+  padding: 1rem var(--content-padding);
+  border-radius: var(--border-radius-top);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+  max-width: var(--content-max-width);
   width: 100%;
-  padding: 2rem 1rem 1rem;
+  margin: 2rem auto 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Container inside footer to separate left and right sections */
 .footer-content {
+  width: 100%;
+  max-width: var(--content-max-width);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
 }
 
-.footer-left h3,
-.footer-right h4 {
-  color: var(--footer-accent);
+/* Left side content */
+.footer-left h3 {
+  color: var(--color-accent);
   margin-bottom: 0.5rem;
 }
 
 .footer-left p,
 .footer-left a {
   font-size: 0.95rem;
-  color: var(--footer-text);
+  color: var(--text-color);
   margin-bottom: 0.3rem;
 }
 
 .footer-left a {
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.footer-left a:hover {
+  color: var(--color-accent);
+}
+
+/* Right side content */
 .footer-right {
-  text-align: left;
+  text-align: right;
 }
 
+.footer-right h4 {
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+/* Social Icons */
 .social-icons {
   display: flex;
   gap: 1rem;
@@ -50,41 +74,35 @@
 }
 
 .social-icons a {
-  color: var(--footer-text);
+  color: var(--text-color);
   transition: color 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: var(--footer-accent);
+  color: var(--color-accent);
 }
 
+/* Bottom copyright text */
 .footer-bottom {
-  text-align: center;
-  padding-top: 1.5rem;
+  margin-top: 1.5rem;
   font-size: 0.85rem;
-  color: var(--footer-light);
+  color: #999;
   border-top: 1px solid #222;
-  margin-top: 2rem;
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
-/* Mobile first */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-
-  .footer-left,
-  .footer-right {
-    width: 100%;
+    gap: 1rem;
   }
 
   .footer-right {
-    margin-top: 1rem;
-  }
-
-  .social-icons {
-    justify-content: center;
+    text-align: center;
   }
 }

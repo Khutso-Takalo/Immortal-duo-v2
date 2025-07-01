@@ -4,21 +4,39 @@ import './Mixtapes.css';
 const mixtapes = [
   {
     id: 1,
-    title: 'Eternal Wave Mix',
-    description: 'A 1-hour set blending chill beats and energetic drops.',
-    embedUrl: 'https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/your-dj-profile/eternal-wave-mix',
+    title: 'Guest Mix',
+    description: 'The Quaranadeep Radio Show With Da Master Session 031',
+    embedUrl: 'https://www.youtube.com/embed/Xcr5TagrPto?list=PLSZQZuYcTdMogy5-9BzXGSzC0Y6V_qhOe',
   },
   {
     id: 2,
-    title: 'Night Vibes EP',
-    description: 'Our latest EP with dark, moody club tracks.',
-    embedUrl: 'https://open.spotify.com/embed/album/yourSpotifyAlbumID',
+    title: 'Main Production mix',
+    description: 'Immortal Duo Episode 16',
+    embedUrl: 'https://www.youtube.com/embed/9jm6aGWaO18?list=PLSZQZuYcTdMogy5-9BzXGSzC0Y6V_qhOe',
   },
   {
     id: 3,
-    title: 'Sunset Festival Live',
-    description: 'Live recording from the 2025 Sunset Festival.',
-    embedUrl: 'https://www.youtube.com/embed/yourYouTubeVideoID',
+    title: 'Guest Mix',
+    description: 'Fusion sounds 019 (Guest Mix by The Immortal Duo)',
+    embedUrl: 'https://www.youtube.com/embed/QUfN4Ev5Sis?list=PLSZQZuYcTdMogy5-9BzXGSzC0Y6V_qhOe',
+  },
+  {
+    id: 4,
+    title: 'Main Production mix',
+    description: 'Immortal Duo epsiode 15(Sgatlis Birthday Mix)',
+    embedUrl: 'https://www.youtube.com/embed/kq0nY_bKAtA?list=PLSZQZuYcTdMogy5-9BzXGSzC0Y6V_qhOe',
+  },
+  {
+    id: 5,
+    title: 'Main Production mix',
+    description: 'Immortal Duo Episode 14',
+    embedUrl: 'https://www.youtube.com/embed/ujx3rrKZptA?list=PLSZQZuYcTdMogy5-9BzXGSzC0Y6V_qhOe',
+  },
+  {
+    id: 6,
+    title: 'Live Set',
+    description: '#Gang_Friday with lapie & Immortal Duo',
+    embedUrl: 'https://www.youtube.com/embed/BEN5NaOG0BE',
   },
 ];
 
@@ -38,9 +56,9 @@ export default function Mixtapes() {
                 title={title}
                 src={embedUrl}
                 width="100%"
-                height="166"
+                height="315"
                 frameBorder="0"
-                allow="autoplay; encrypted-media"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>

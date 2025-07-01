@@ -1,32 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Media.css';
+import BoyzaImg from '../../assets/Boyza.png';
+import DuoImg from '../../assets/Immorta_duo.jpg';
+import PosterImg from '../../assets/recent poster.jpg';
+import SgatliImg from '../../assets/Sgatli.png';
 
-const photoGallery = [
-  '/media/photo1.jpg',
-  '/media/photo2.jpg',
-  '/media/photo3.jpg',
-  '/media/photo4.jpg',
-  '/media/photo5.jpg',
-  '/media/photo6.jpg',
-];
+const photoGallery = [BoyzaImg, DuoImg, PosterImg, SgatliImg];
 
 const videoGallery = [
   {
     id: 1,
     title: 'Sunset Festival Live Set',
-    url: 'https://www.youtube.com/embed/yourYouTubeVideoID1',
+    url: 'https://www.youtube.com/embed/Xcr5TagrPto',
   },
   {
     id: 2,
     title: 'Studio Session Highlights',
-    url: 'https://www.youtube.com/embed/yourYouTubeVideoID2',
+    url: 'https://www.youtube.com/embed/QUfN4Ev5Sis',
   },
 ];
 
 export default function Media() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
+
+  const openLightbox = (src) => {
+    setCurrentImage(src);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setCurrentImage(null);
+  };
+
   return (
     <div className="media-page container">
-      <h1>Media</h1>
+      <h1>{/*Media*/}</h1>
 
       {/* PHOTOS */}
       <section className="media-photos">
@@ -39,11 +49,20 @@ export default function Media() {
               alt={`Immortal Duo Photo ${idx + 1}`}
               loading="lazy"
               tabIndex="0"
+              className="photo-thumbnail"
+              onClick={() => openLightbox(src)}
               aria-label={`View photo ${idx + 1}`}
             />
           ))}
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <div className="lightbox" onClick={closeLightbox}>
+          <img src={currentImage} alt="Enlarged view" className="lightbox-img" />
+        </div>
+      )}
 
       {/* VIDEOS */}
       <section className="media-videos">

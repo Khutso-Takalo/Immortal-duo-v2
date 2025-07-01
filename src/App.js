@@ -11,15 +11,12 @@ import Media from './pages/Media/Media';
 import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
 
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-
 function App() {
   return (
     <Router>
-      <ScrollToTop />
       <div className="app-container">
         <Navbar />
-        <div className="main-content">
+        <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
@@ -28,7 +25,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
+        </main>
         <Footer />
       </div>
     </Router>
