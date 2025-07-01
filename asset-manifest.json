@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Immortal-duo/static/css/main.509bd8fb.css",
+    "main.js": "/Immortal-duo/static/js/main.a2b46793.js",
+    "static/js/453.ba759206.chunk.js": "/Immortal-duo/static/js/453.ba759206.chunk.js",
+    "index.html": "/Immortal-duo/index.html",
+    "main.509bd8fb.css.map": "/Immortal-duo/static/css/main.509bd8fb.css.map",
+    "main.a2b46793.js.map": "/Immortal-duo/static/js/main.a2b46793.js.map",
+    "453.ba759206.chunk.js.map": "/Immortal-duo/static/js/453.ba759206.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.509bd8fb.css",
+    "static/js/main.a2b46793.js"
+  ]
+}
