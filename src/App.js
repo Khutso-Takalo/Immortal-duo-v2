@@ -14,11 +14,8 @@ import NotFound from './pages/NotFound/NotFound';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 function App() {
-  // Use PUBLIC_URL from environment or fallback to '/'
-  const basename = process.env.PUBLIC_URL || '/';
-
   return (
-    <Router basename={basename}>
+    <Router>
       <ScrollToTop />
       <div className="app-container">
         <Navbar />
