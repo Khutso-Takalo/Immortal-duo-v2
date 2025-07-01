@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.509bd8fb.css",
-    "main.js": "/static/js/main.82a9cbc0.js",
+    "main.css": "/static/css/main.0642868f.css",
+    "main.js": "/static/js/main.7223e933.js",
     "static/js/453.ba759206.chunk.js": "/static/js/453.ba759206.chunk.js",
+    "static/media/Immorta_duo.jpg": "/static/media/Immorta_duo.dab7eaf1d53c25ea2d86.jpg",
+    "static/media/recent poster.jpg": "/static/media/recent poster.96d60070846312d19604.jpg",
+    "static/media/Sgatli.png": "/static/media/Sgatli.c93a70fbba327de659c6.png",
+    "static/media/Boyza.png": "/static/media/Boyza.b36b2ed6feb7187e2fab.png",
     "index.html": "/index.html",
-    "main.509bd8fb.css.map": "/static/css/main.509bd8fb.css.map",
-    "main.82a9cbc0.js.map": "/static/js/main.82a9cbc0.js.map",
+    "main.0642868f.css.map": "/static/css/main.0642868f.css.map",
+    "main.7223e933.js.map": "/static/js/main.7223e933.js.map",
     "453.ba759206.chunk.js.map": "/static/js/453.ba759206.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.509bd8fb.css",
-    "static/js/main.82a9cbc0.js"
+    "static/css/main.0642868f.css",
+    "static/js/main.7223e933.js"
   ]
 }
