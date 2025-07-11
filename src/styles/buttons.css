@@ -1,0 +1,300 @@
+/* 🎵 Professional Button System - Black & Red Theme */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  user-select: none;
+  backdrop-filter: var(--glass-backdrop);
+}
+
+/* === PRIMARY BUTTON (Red Gradient) === */
+.btn-primary {
+  background: var(--gradient-accent);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-accent);
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent-hover);
+  filter: brightness(1.1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-accent);
+}
+
+/* === SECONDARY BUTTON (Dark Gradient) === */
+.btn-secondary {
+  background: var(--gradient-subtle);
+  color: var(--text-primary);
+  border: 2px solid var(--border-secondary);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary:hover {
+  background: var(--gradient-primary);
+  border-color: var(--accent-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-large);
+}
+
+/* === OUTLINE BUTTON === */
+.btn-outline {
+  background: transparent;
+  color: var(--accent-red);
+  border: var(--btn-outline-border);
+  backdrop-filter: var(--glass-backdrop);
+}
+
+.btn-outline:hover {
+  background: var(--gradient-accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent-hover);
+}
+
+/* === GHOST BUTTON === */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--btn-ghost-hover);
+  color: var(--accent-red);
+  border-color: var(--border-primary);
+}
+
+/* === GLASS BUTTON === */
+.btn-glass {
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-backdrop);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 60, 95, 0.2);
+  border-color: var(--accent-red);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-large);
+}
+
+/* === NEON BUTTON === */
+.btn-neon {
+  background: transparent;
+  color: var(--accent-red);
+  border: 2px solid var(--accent-red);
+  text-shadow: var(--neon-text-shadow);
+  box-shadow: var(--neon-glow);
+}
+
+.btn-neon:hover {
+  background: var(--accent-red);
+  color: var(--primary-black);
+  text-shadow: none;
+  box-shadow: 0 0 20px var(--accent-red), 0 0 30px var(--accent-red);
+  animation: var(--glow-animation);
+}
+
+/* === BUTTON SIZES === */
+.btn-sm {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+.btn-xl {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: 1.25rem;
+}
+
+/* === BUTTON ICONS === */
+.btn svg {
+  transition: transform var(--transition-normal);
+}
+
+.btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* === BUTTON LOADING STATE === */
+.btn-loading {
+  pointer-events: none;
+  opacity: 0.7;
+  position: relative;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === BUTTON GROUPS === */
+.btn-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-group .btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* === FLOATING ACTION BUTTON === */
+.btn-fab {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-accent);
+  color: var(--text-primary);
+  border: none;
+  box-shadow: var(--shadow-large);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  z-index: 100;
+}
+
+.btn-fab:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+/* === BUTTON RIPPLE EFFECT === */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.btn-ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* === RESPONSIVE BUTTONS === */
+@media (max-width: 768px) {
+  .btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .btn-fab {
+    bottom: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* === ACCESSIBILITY === */
+.btn:focus {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* === SPECIAL EFFECTS === */
+.btn-pulse {
+  animation: var(--pulse-animation);
+}
+
+.btn-glow {
+  animation: var(--glow-animation);
+}
+
+.btn-float {
+  animation: var(--float-animation);
+}
+
+/* === CUSTOM BUTTON VARIANTS === */
+.btn-music {
+  background: linear-gradient(135deg, #1db954 0%, #1ed760 100%);
+  color: var(--text-primary);
+}
+
+.btn-music:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+.btn-social {
+  background: var(--gradient-primary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-secondary);
+}
+
+.btn-social:hover {
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+  background: var(--bg-glass);
+}

@@ -46,6 +46,58 @@ export default function Mixtapes() {
       <h1>Mixtapes</h1>
       <p>Timeless blends, festival memories, and fresh drops — all in one place.</p>
 
+      {/* Podomatic Podcast Section */}
+      <div className="podcast-section">
+        <h2>Listen on Podomatic</h2>
+        <div className="podcast-embed">
+          <iframe 
+            src="https://podomatic.com/embed/html5/podcast/6388101" 
+            height="208" 
+            width="100%" 
+            frameBorder="0" 
+            marginHeight="0" 
+            marginWidth="0" 
+            scrolling="no" 
+            allowFullScreen
+            title="Immortal Duo Podcast"
+          />
+        </div>
+        <div className="podcast-links">
+          <a 
+            href="https://www.podomatic.com/podcasts/katlegokekana442" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="podcast-link"
+          >
+            Listen on Podomatic
+          </a>
+          <a 
+            href="https://podcasts.apple.com/us/podcast/the-immortal-duo/id1788681138" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="podcast-link apple"
+          >
+            Listen on Apple Podcasts
+          </a>
+          <a 
+            href="https://hearthis.at/the-immortal-duo/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="podcast-link hearthis"
+          >
+            Listen on HearThis.at
+          </a>
+          <a 
+            href="https://www.youtube.com/@Thee_immortalduo" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="podcast-link youtube"
+          >
+            Watch on YouTube
+          </a>
+        </div>
+      </div>
+
       <div className="mixtape-list">
         {mixtapes.map(({ id, title, description, embedUrl }) => (
           <div key={id} className="mixtape-card">

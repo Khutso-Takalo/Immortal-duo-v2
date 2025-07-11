@@ -1,0 +1,125 @@
+/* Loading Spinner - Professional Black & Red Theme */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--bg-primary);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-secondary);
+  border-top: 4px solid var(--accent-red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner.small .spinner {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+}
+
+.loading-spinner.large .spinner {
+  width: 60px;
+  height: 60px;
+  border-width: 6px;
+}
+
+.loading-text {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-family: var(--font-primary);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Music-themed loader */
+.music-loader {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  height: 40px;
+}
+
+.music-bar {
+  width: 6px;
+  background: var(--gradient-accent);
+  border-radius: 3px;
+  animation: musicBounce 1.2s ease-in-out infinite;
+  box-shadow: var(--shadow-accent);
+}
+
+.music-bar:nth-child(1) { animation-delay: 0s; }
+.music-bar:nth-child(2) { animation-delay: 0.1s; }
+.music-bar:nth-child(3) { animation-delay: 0.2s; }
+.music-bar:nth-child(4) { animation-delay: 0.3s; }
+.music-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes musicBounce {
+  0%, 40%, 100% {
+    height: 10px;
+  }
+  20% {
+    height: 40px;
+  }
+}
+
+.loading-spinner.small .music-loader {
+  height: 24px;
+}
+
+.loading-spinner.small .music-bar {
+  width: 4px;
+}
+
+.loading-spinner.small .music-bar {
+  animation: musicBounceSmall 1.2s ease-in-out infinite;
+}
+
+@keyframes musicBounceSmall {
+  0%, 40%, 100% {
+    height: 6px;
+  }
+  20% {
+    height: 24px;
+  }
+}
+
+.loading-spinner.large .music-loader {
+  height: 60px;
+}
+
+.loading-spinner.large .music-bar {
+  width: 8px;
+}
+
+.loading-spinner.large .music-bar {
+  animation: musicBounceLarge 1.2s ease-in-out infinite;
+}
+
+@keyframes musicBounceLarge {
+  0%, 40%, 100% {
+    height: 15px;
+  }
+  20% {
+    height: 60px;
+  }
+}
+
+/* Dark theme support - now uses theme variables */
+.spinner {
+  border-color: var(--border-secondary);
+  border-top-color: var(--accent-red);
+}
+
+.loading-text {
+  color: var(--text-secondary);
+}

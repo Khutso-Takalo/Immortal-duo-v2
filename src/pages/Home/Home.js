@@ -1,143 +1,339 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Headphones, Calendar, Music, ArrowRight, Play, ExternalLink, ChevronDown, Mail, Image } from 'lucide-react';
 import './Home.css';
 
 import BoyzaImg from '../../assets/Boyza.png';
 import SgatliImg from '../../assets/Sgatli.png';
+import RecentPoster from '../../assets/recent poster.jpg';
 
 export default function Home() {
-  const djCardsRef = useRef([]);
+  // Animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        duration: 0.5
+      }
+    }
+  };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+  const childVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
 
-    djCardsRef.current.forEach(el => {
-      if (el) observer.observe(el);
-    });
+  // Intersection observers for scroll animations
+  const [heroRef, heroInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
 
-    return () => observer.disconnect();
-  }, []);
+  const [featuredRef, featuredInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
+  const [djsRef, djsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
+
+  const [eventsRef, eventsInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
 
   return (
-    <div className="home-page container">
-      {/* Hero Section */}
-      <section className="hero">
-        <h1>Immortal Duo</h1>
-        <p className="tagline">Feel the wave of eternal sound.</p>
-        <div className="hero-buttons">
-          <Link to="/mixtapes" className="btn">🎧 Listen</Link>
-          <Link to="/contact" className="btn">📩 Book Us</Link>
-        </div>
-      </section>
-
-      {/* Intro */}
-      <section className="intro">
-        <h2>Who We Are</h2>
-        <p>
-          Immortal Duo is a South African DJ pair blending deep house and soulful vibes
-          into exclusive mixtapes. From late-night grooves to festival-ready sets,
-          Boyza Rsa and Sgatli bring timeless sound with a modern soul.
-        </p>
-      </section>
-
-          {/* HearThis Player Section */}
-      <section className="hearthis-embed-section">
-        <h2>Tune into Soulful House Music</h2>
-        <div
-          style={{
-            borderRadius: '10px',
-            overflow: 'hidden',
-            maxWidth: '640px',
-            margin: '1rem auto',
-          }}
+    <div className="home-page">
+      {/* Hero Image Introduction - with proper border and styling */}
+      <div className="hero-intro-container">
+        <motion.div 
+          className="hero-intro-image"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <iframe
-            scrolling="no"
-            style={{ borderRadius: '10px' }}
-            id="hearthis_at_track_11794039"
-            width="100%"
-            height="150"
-            src="https://app.hearthis.at/embed/11794039/transparent_black/?hcolor=&color=&style=2&block_size=1&block_space=0&background=1&waveform=0&cover=0&autoplay=0&css="
-            frameBorder="0"
-            allowTransparency
-            allow="autoplay"
-            title="Immortal Duo HearThis Player"
+          <motion.img 
+            src={process.env.PUBLIC_URL + '/hero_section.png'} 
+            alt="Immortal Duo Introduction" 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+          />
+        </motion.div>
+      </div>
+      
+      {/* Hero Section */}
+      <motion.section 
+        className="hero-section"
+        ref={heroRef}
+        initial="hidden"
+        animate={heroInView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <div className="hero-content">
+          <motion.h1 
+            className="glitch-text" 
+            data-text="IMMORTAL DUO"
+            variants={childVariants}
           >
-            <p>
-              Listen to{' '}
-              <a
-                href="https://hearthis.at/the-immortal-duo/fusion-sounds-019-guest-mix-by-the-immortal-duo/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                FUSION SOUNDS 019 (GUEST MIX BY THE IMMORTAL DUO)
-              </a>{' '}
-              <span>by</span>{' '}
-              <a
-                href="https://hearthis.at/the-immortal-duo/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                THE IMMORTAL DUO
-              </a>{' '}
-              <span>on</span>{' '}
-              <a href="https://hearthis.at/" target="_blank" rel="noopener noreferrer">
-                hearthis.at
-              </a>
-            </p>
-          </iframe>
+            IMMORTAL DUO
+          </motion.h1>
+          
+          <motion.p 
+            className="hero-tagline"
+            variants={childVariants}
+          >
+            Redefining the sound of tomorrow, today.
+          </motion.p>
+          
+          <motion.div 
+            className="hero-cta"
+            variants={childVariants}
+          >
+            <Link to="/mixtapes" className="cyber-button gradient">
+              <Headphones size={18} />
+              <span>Listen Now</span>
+            </Link>
+            
+            <Link to="/events" className="cyber-button">
+              <Calendar size={18} />
+              <span>Upcoming Events</span>
+            </Link>
+          </motion.div>
+          
+          <motion.div 
+            className="hero-scroll-indicator"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            variants={childVariants}
+          >
+            <span>Scroll Down</span>
+            <ChevronDown size={24} />
+          </motion.div>
         </div>
-      </section>
+        
+        <div className="hero-backdrop"></div>
+      </motion.section>
 
-      {/* Meet the DJs */}
-      <section className="meet-djs">
-        <h2>Meet the Duo</h2>
-        <div className="dj-cards">
-          <div
-            className="dj-card"
-            ref={el => (djCardsRef.current[0] = el)}
+      {/* Featured Section */}
+      <motion.section 
+        className="featured-section section"
+        ref={featuredRef}
+        initial="hidden"
+        animate={featuredInView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <div className="container">
+          <motion.h2 variants={childVariants}>Latest Release</motion.h2>
+          
+          <motion.div 
+            className="featured-content"
+            variants={childVariants}
           >
-            <img src={BoyzaImg} alt="Boyza Rsa" />
-            <h3>Boyza Rsa</h3>
-            <p>
-              The heartbeat of deep house — Boyza fuses old-school rhythms with
-              new-age soul. Known for unforgettable late-night sets.
-            </p>
-          </div>
+            <div className="featured-image">
+              <img src={RecentPoster} alt="Latest Mixtape Cover" />
+              <div className="play-overlay">
+                <Play size={48} />
+              </div>
+            </div>
+            
+            <div className="featured-info">
+              <h3 className="gradient-text">The Quarandeep Radio Show</h3>
+              <p>Our latest mixtape takes you on a journey through pulsating beats and hypnotic rhythms. Featuring collaborations with the industry's finest talents. Dont forget stricly exclusives!</p>
+              
+              <div className="featured-meta">
+                <span><Music size={16} /> 16 Tracks</span>
+                <span>Released: June 11, 2025</span>
+              </div>
+              
+              <div className="featured-cta">
+                <Link to="/mixtapes" className="cyber-button purple">
+                  <span>Full Mixtape</span>
+                  <ArrowRight size={16} />
+                </Link>
+                
+                <a href="https://hearthis.at/the-immortal-duo/" target="_blank" rel="noopener noreferrer" className="cyber-button">
+                  <span>HearThis.at</span>
+                  <ExternalLink size={16} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
-          <div
-            className="dj-card"
-            ref={el => (djCardsRef.current[1] = el)}
+      {/* DJs Section */}
+      <motion.section 
+        className="djs-section section"
+        ref={djsRef}
+        initial="hidden"
+        animate={djsInView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <div className="container">
+          <motion.h2 variants={childVariants}>Meet The Duo</motion.h2>
+          
+          <motion.div 
+            className="djs-grid"
+            variants={childVariants}
           >
-            <img src={SgatliImg} alt="Sgatli" />
-            <h3>Sgatli</h3>
-            <p>
-              Master of melodic blends — Sgatli brings warm vibes, lush chords,
-              and floor-filling groove. A sound engineer with a crowd-first mindset.
-            </p>
+            <div className="dj-card cyber-card">
+              <div className="dj-image">
+                <img src={BoyzaImg} alt="DJ Boyza" />
+              </div>
+              <div className="dj-info">
+                <h3>DJ Boyza</h3>
+                <p>The beat maestro with an ear for rhythm that moves the crowd. Specializing in soulful and house music that transcends time.</p>
+                <Link to="/about" className="text-glow-blue">Read More</Link>
+              </div>
+            </div>
+            
+            <div className="dj-card cyber-card">
+              <div className="dj-image">
+                <img src={SgatliImg} alt="DJ Sgatli" />
+              </div>
+              <div className="dj-info">
+                <h3>DJ Sgatli</h3>
+                <p>The mix wizard who blends genres with precision and creativity. Known for transitions that tell a story on every set.</p>
+                <Link to="/about" className="text-glow-blue">Read More</Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Events Section */}
+      <motion.section 
+        className="events-section section"
+        ref={eventsRef}
+        initial="hidden"
+        animate={eventsInView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <div className="container">
+          <motion.h2 variants={childVariants}>Upcoming Events</motion.h2>
+          
+          <motion.div 
+            className="events-grid"
+            variants={childVariants}
+          >
+            <div className="event-card cyber-card">
+              <div className="event-date">
+                <span className="event-day">15</span>
+                <span className="event-month">JUL</span>
+              </div>
+              <div className="event-details">
+                <h3>Neon Dreams Festival</h3>
+                <p className="event-location">Cosmic Arena, Johannesburg</p>
+                <p className="event-time">21:00 - 02:00</p>
+                <button className="cyber-button pink">Get Tickets</button>
+              </div>
+            </div>
+            
+            <div className="event-card cyber-card">
+              <div className="event-date">
+                <span className="event-day">28</span>
+                <span className="event-month">JUL</span>
+              </div>
+              <div className="event-details">
+                <h3>Summer Sunset Sessions</h3>
+                <p className="event-location">Beach Club, Cape Town</p>
+                <p className="event-time">16:00 - 22:00</p>
+                <button className="cyber-button pink">Get Tickets</button>
+              </div>
+            </div>
+            
+            <div className="event-card cyber-card">
+              <div className="event-date">
+                <span className="event-day">10</span>
+                <span className="event-month">AUG</span>
+              </div>
+              <div className="event-details">
+                <h3>Club Cybernaut</h3>
+                <p className="event-location">Digital Lounge, Pretoria</p>
+                <p className="event-time">22:00 - 04:00</p>
+                <button className="cyber-button pink">Get Tickets</button>
+              </div>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="events-cta"
+            variants={childVariants}
+          >
+            <Link to="/events" className="cyber-button gradient">
+              <span>View All Events</span>
+              <ArrowRight size={16} />
+            </Link>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Newsletter Section */}
+      <motion.section 
+        className="newsletter-section"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+      >
+        <div className="container">
+          <div className="newsletter-content">
+            <h2>Stay Connected</h2>
+            <p>Subscribe to our newsletter for exclusive updates, upcoming events, and special announcements.</p>
+            
+            <form className="newsletter-form">
+              <input type="email" placeholder="Enter your email" required />
+              <button type="submit" className="cyber-button purple">Subscribe</button>
+            </form>
           </div>
         </div>
-      </section>
-
+      </motion.section>
+      
       {/* Quick Links */}
-      <section className="quick-links">
-        <h2>Explore More</h2>
-        <div className="links">
-          <Link to="/mixtapes" className="btn link-btn">🎵 Mixtapes</Link>
-          <Link to="/media" className="btn link-btn">📸 Media</Link>
-          <Link to="/contact" className="btn link-btn">📬 Contact</Link>
+      <motion.section 
+        className="quick-links-section section"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+      >
+        <div className="container">
+          <motion.h2 variants={childVariants}>Explore More</motion.h2>
+          
+          <motion.div 
+            className="quick-links-grid"
+            variants={childVariants}
+          >
+            <Link to="/mixtapes" className="quick-link-card cyber-card">
+              <Music size={32} />
+              <span>Mixtapes</span>
+            </Link>
+            
+            <Link to="/media" className="quick-link-card cyber-card">
+              <Image size={32} />
+              <span>Media</span>
+            </Link>
+            
+            <Link to="/contact" className="quick-link-card cyber-card">
+              <Mail size={32} />
+              <span>Contact</span>
+            </Link>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 }

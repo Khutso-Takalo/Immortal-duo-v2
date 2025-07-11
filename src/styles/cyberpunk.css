@@ -1,0 +1,509 @@
+/* 🔮 IMMORTAL DUO - CYBERPUNK NEON THEME 🔮 */
+
+:root {
+  /* Base colors */
+  --cyber-black: #090909;
+  --cyber-dark: #121212;
+  --cyber-gray: #1e1e1e;
+  --cyber-light: #2a2a2a;
+  
+  /* Neon colors */
+  --neon-blue: #00f0ff;
+  --neon-purple: #bd00ff;
+  --neon-pink: #ff00d4;
+  --neon-yellow: #f7fd04;
+  --neon-green: #00ffb3;
+  
+  /* Gradients */
+  --cyber-gradient: linear-gradient(45deg, var(--neon-purple) 0%, var(--neon-blue) 100%);
+  --cyber-gradient-alt: linear-gradient(45deg, var(--neon-pink) 0%, var(--neon-purple) 100%);
+  --cyber-gradient-tri: linear-gradient(45deg, var(--neon-blue) 0%, var(--neon-purple) 50%, var(--neon-pink) 100%);
+  --cyber-grid-bg: radial-gradient(var(--neon-blue) 1px, transparent 1px);
+  
+  /* Text */
+  --text-white: #ffffff;
+  --text-light: #dddddd;
+  --text-mid: #999999;
+  --text-dark: #555555;
+  
+  /* Shadows */
+  --neon-shadow-blue: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+  --neon-shadow-purple: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+  --neon-shadow-pink: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+  --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  
+  /* Fonts */
+  --font-primary: 'Orbitron', 'Rajdhani', sans-serif;
+  --font-secondary: 'Exo 2', 'Rajdhani', sans-serif;
+  --font-body: 'Rajdhani', 'Exo 2', sans-serif;
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  
+  /* Sizes */
+  --header-height: 70px;
+  --max-width: 1400px;
+  
+  /* Animations */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+}
+
+/* Animations */
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+  }
+  50% {
+    text-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-purple);
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+  }
+  33% {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple);
+  }
+  66% {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+  }
+  100% {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+  }
+}
+
+/* Base styles */
+html, body {
+  background-color: var(--cyber-black);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: 
+    linear-gradient(rgba(9, 9, 9, 0.9), rgba(9, 9, 9, 0.9)),
+    var(--cyber-grid-bg);
+  background-size: 50px 50px;
+  min-height: 100vh;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 0%, var(--cyber-black) 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+a {
+  color: var(--neon-blue);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--neon-purple);
+  text-shadow: var(--neon-shadow-purple);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.5rem;
+  background: var(--cyber-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease infinite;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--neon-purple);
+}
+
+p {
+  margin: 0 0 1.5rem;
+  font-size: 1.1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.section {
+  padding: var(--space-xl) 0;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Cyberpunk Components */
+
+/* Neon Card */
+.cyber-card {
+  background: var(--cyber-dark);
+  border: 1px solid var(--neon-blue);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--box-shadow), 0 0 10px rgba(0, 240, 255, 0.3);
+  transition: var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow), 0 0 20px rgba(0, 240, 255, 0.5);
+  border-color: var(--neon-purple);
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 240, 255, 0.2),
+    transparent
+  );
+  transition: var(--transition-slow);
+}
+
+.cyber-card:hover::before {
+  left: 100%;
+}
+
+/* Neon Button */
+.cyber-button {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 2rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-medium);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.cyber-button:hover {
+  background: var(--neon-blue);
+  color: var(--cyber-black);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.7);
+}
+
+.cyber-button.purple {
+  color: var(--neon-purple);
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(189, 0, 255, 0.3);
+}
+
+.cyber-button.purple:hover {
+  background: var(--neon-purple);
+  color: var(--cyber-black);
+  box-shadow: 0 0 20px rgba(189, 0, 255, 0.7);
+}
+
+.cyber-button.pink {
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 0, 212, 0.3);
+}
+
+.cyber-button.pink:hover {
+  background: var(--neon-pink);
+  color: var(--cyber-black);
+  box-shadow: 0 0 20px rgba(255, 0, 212, 0.7);
+}
+
+.cyber-button.gradient {
+  background: var(--cyber-gradient);
+  border: none;
+  color: var(--cyber-black);
+  box-shadow: var(--box-shadow);
+}
+
+.cyber-button.gradient:hover {
+  background: var(--cyber-gradient-alt);
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow), 0 0 20px rgba(189, 0, 255, 0.4);
+}
+
+/* Glitch Text */
+.glitch-text {
+  position: relative;
+  color: var(--text-white);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  animation: flicker 3s linear infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--neon-pink);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--neon-blue);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+  10% {
+    clip: rect(112px, 9999px, 76px, 0);
+  }
+  20% {
+    clip: rect(85px, 9999px, 140px, 0);
+  }
+  30% {
+    clip: rect(27px, 9999px, 45px, 0);
+  }
+  40% {
+    clip: rect(120px, 9999px, 91px, 0);
+  }
+  50% {
+    clip: rect(10px, 9999px, 143px, 0);
+  }
+  60% {
+    clip: rect(25px, 9999px, 97px, 0);
+  }
+  70% {
+    clip: rect(109px, 9999px, 36px, 0);
+  }
+  80% {
+    clip: rect(24px, 9999px, 34px, 0);
+  }
+  90% {
+    clip: rect(80px, 9999px, 136px, 0);
+  }
+  100% {
+    clip: rect(56px, 9999px, 98px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+  }
+  15% {
+    clip: rect(133px, 9999px, 31px, 0);
+  }
+  30% {
+    clip: rect(67px, 9999px, 130px, 0);
+  }
+  45% {
+    clip: rect(40px, 9999px, 18px, 0);
+  }
+  60% {
+    clip: rect(64px, 9999px, 74px, 0);
+  }
+  75% {
+    clip: rect(111px, 9999px, 56px, 0);
+  }
+  90% {
+    clip: rect(87px, 9999px, 29px, 0);
+  }
+  100% {
+    clip: rect(5px, 9999px, 145px, 0);
+  }
+}
+
+/* Dividers */
+.cyber-divider {
+  height: 2px;
+  background: var(--cyber-gradient);
+  margin: var(--space-lg) 0;
+  position: relative;
+  border-radius: var(--radius-pill);
+}
+
+.cyber-divider::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 10px;
+  background: var(--neon-blue);
+  border-radius: var(--radius-sm);
+}
+
+/* Utilities */
+.text-glow-blue {
+  color: var(--neon-blue);
+  text-shadow: var(--neon-shadow-blue);
+}
+
+.text-glow-purple {
+  color: var(--neon-purple);
+  text-shadow: var(--neon-shadow-purple);
+}
+
+.text-glow-pink {
+  color: var(--neon-pink);
+  text-shadow: var(--neon-shadow-pink);
+}
+
+.border-glow {
+  border: 2px solid var(--neon-blue);
+  animation: borderFlow 3s infinite;
+}
+
+.gradient-text {
+  background: var(--cyber-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientFlow 5s ease infinite;
+}
+
+.neon-box {
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+/* Animations */
+.reveal-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-animation.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 0 var(--space-sm);
+  }
+  .section {
+    padding: var(--space-lg) 0;
+  }
+}

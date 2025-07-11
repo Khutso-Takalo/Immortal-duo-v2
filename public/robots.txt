@@ -1,3 +1,13 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for Immortal Duo
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://yourusername.github.io/immortal-duo/sitemap.xml
+
+# Disallow certain paths (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

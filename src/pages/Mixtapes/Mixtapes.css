@@ -1,69 +1,200 @@
+/* Mixtapes Page - Cosmic Nebula Theme */
 .mixtapes-page {
-  max-width: var(--max-width);
-  margin: 2rem auto;
-  padding: var(--padding);
-  font-family: var(--font-family);
-  color: var(--color-primary);
+  max-width: var(--max-width-cosmic);
+  margin: 4rem auto;
+  padding: var(--space-large);
+  font-family: var(--font-stellar);
+  color: var(--text-supernova);
+  background: var(--bg-cosmos);
 }
 
 .mixtapes-page h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  margin-bottom: 1rem;
   text-align: center;
-  color: var(--color-accent);
+  color: var(--cosmic-purple);
+  font-weight: 700;
+  text-shadow: var(--glow-stellar);
+  position: relative;
+}
+
+.mixtapes-page h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-nebula);
+  border-radius: 2px;
 }
 
 .mixtapes-page p {
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.125rem;
-  color: #555;
+  margin-bottom: 3rem;
+  font-size: 1.2rem;
+  color: var(--text-cosmic);
+  line-height: 1.6;
 }
 
 .mixtape-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
   justify-content: center;
 }
 
 .mixtape-card {
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-  width: 320px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--border-secondary);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
+  transition: all var(--transition-normal) ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mixtape-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-accent);
+}
+
+.mixtape-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-accent-hover);
+  border-color: var(--accent-red);
 }
 
 .mixtape-card h3 {
   margin: 0;
-  color: var(--color-accent);
-  font-weight: 700;
+  color: var(--accent-red);
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .mixtape-card p {
-  font-size: 0.9rem;
-  color: #444;
+  font-size: 1rem;
+  color: var(--text-secondary);
   margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.player-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  border: 2px solid var(--border-secondary);
 }
 
 .player-wrapper iframe {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   width: 100%;
   height: 166px;
+  display: block;
+}
+
+/* Podcast Section */
+.podcast-section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.podcast-section h2 {
+  font-size: 2.5rem;
+  color: var(--cosmic-purple);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-shadow: var(--glow-stellar);
+}
+
+.podcast-embed {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.podcast-embed iframe {
+  width: 100%;
+  border: none;
+}
+
+.podcast-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.podcast-link {
+  padding: 1rem 2rem;
+  background: var(--gradient-nebula);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.podcast-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.podcast-link.apple {
+  background: linear-gradient(135deg, #fc466b, #3f5efb);
+}
+
+.podcast-link.hearthis {
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+}
+
+.podcast-link.youtube {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .mixtapes-page {
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+  }
+  
+  .mixtapes-page h1 {
+    font-size: 2.5rem;
+  }
+  
   .mixtape-list {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .mixtape-card {
+    padding: 1.5rem;
+  }
+
+  .podcast-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .podcast-link {
     width: 100%;
+    max-width: 300px;
   }
 }
