@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/immortal-duo-v2/static/css/main.750d913c.css",
-    "main.js": "/immortal-duo-v2/static/js/main.1133f5b7.js",
+    "main.js": "/immortal-duo-v2/static/js/main.2453322d.js",
     "static/css/224.a3ff05df.chunk.css": "/immortal-duo-v2/static/css/224.a3ff05df.chunk.css",
     "static/js/224.0af55fd1.chunk.js": "/immortal-duo-v2/static/js/224.0af55fd1.chunk.js",
     "static/css/278.b10eac3b.chunk.css": "/immortal-duo-v2/static/css/278.b10eac3b.chunk.css",
@@ -21,7 +21,7 @@
     "static/media/Boyza.png": "/immortal-duo-v2/static/media/Boyza.b36b2ed6feb7187e2fab.png",
     "index.html": "/immortal-duo-v2/index.html",
     "main.750d913c.css.map": "/immortal-duo-v2/static/css/main.750d913c.css.map",
-    "main.1133f5b7.js.map": "/immortal-duo-v2/static/js/main.1133f5b7.js.map",
+    "main.2453322d.js.map": "/immortal-duo-v2/static/js/main.2453322d.js.map",
     "224.a3ff05df.chunk.css.map": "/immortal-duo-v2/static/css/224.a3ff05df.chunk.css.map",
     "224.0af55fd1.chunk.js.map": "/immortal-duo-v2/static/js/224.0af55fd1.chunk.js.map",
     "278.b10eac3b.chunk.css.map": "/immortal-duo-v2/static/css/278.b10eac3b.chunk.css.map",
@@ -38,6 +38,6 @@
   },
   "entrypoints": [
     "static/css/main.750d913c.css",
-    "static/js/main.1133f5b7.js"
+    "static/js/main.2453322d.js"
   ]
 }
