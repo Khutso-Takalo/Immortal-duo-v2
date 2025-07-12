@@ -16,11 +16,6 @@ export const reportWebVitalsToAnalytics = () => {
   function sendToAnalytics({ name, delta, value, id }) {
     // Send performance metrics to Google Analytics
     Analytics.sendEvent('web_vitals', 'Performance', name, Math.round(value));
-    
-    // Log to console in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`${name}: ${value} (delta: ${delta})`);
-    }
   }
 
   getCLS(sendToAnalytics);

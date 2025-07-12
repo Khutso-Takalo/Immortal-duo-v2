@@ -13,14 +13,7 @@ root.render(
 );
 
 // Register service worker for PWA functionality
-serviceWorkerRegistration.register({
-  onSuccess: () => {
-    console.log('Immortal Duo is now available offline!');
-  },
-  onUpdate: () => {
-    console.log('New content available. Please refresh.');
-  }
-});
+serviceWorkerRegistration.register();
 
 // Report Web Vitals to Analytics
 reportWebVitalsToAnalytics();
