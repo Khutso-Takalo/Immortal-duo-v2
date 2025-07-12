@@ -489,6 +489,80 @@ img {
   transform: translateY(0);
 }
 
+/* Fix for grey box accessibility issues */
+*[title],
+*[aria-label],
+*[aria-describedby] {
+  position: relative;
+}
+
+/* Remove default browser tooltips that might appear as grey boxes */
+*[title]:hover::before,
+*[title]:hover::after,
+*[aria-label]:hover::before,
+*[aria-label]:hover::after {
+  display: none !important;
+}
+
+/* Ensure no phantom elements */
+*:empty:not(input):not(textarea):not(img):not(br):not(hr):not(area):not(base):not(col):not(embed):not(link):not(meta):not(param):not(source):not(track):not(wbr) {
+  display: none !important;
+}
+
+/* Remove any unwanted grey backgrounds */
+* {
+  background-color: transparent !important;
+}
+
+/* Override for intended backgrounds */
+html, body, .cyber-card, .cyber-button {
+  background-color: var(--cyber-black) !important;
+}
+
+.cyber-card {
+  background-color: var(--cyber-dark) !important;
+}
+
+.cyber-button:hover {
+  background-color: var(--neon-blue) !important;
+}
+
+.cyber-button.purple:hover {
+  background-color: var(--neon-purple) !important;
+}
+
+.cyber-button.pink:hover {
+  background-color: var(--neon-pink) !important;
+}
+
+.cyber-button.gradient {
+  background: var(--cyber-gradient) !important;
+}
+
+.cyber-button.gradient:hover {
+  background: var(--cyber-gradient-alt) !important;
+}
+
+/* Fix for specific emphasized content */
+em, .emphasized {
+  background-color: transparent !important;
+  color: var(--neon-blue) !important;
+  font-style: italic;
+}
+
+/* Remove any browser default styling */
+*:focus {
+  outline: 2px solid var(--neon-blue) !important;
+  outline-offset: 2px;
+  background-color: transparent !important;
+}
+
+/* Ensure proper z-index stacking */
+.cyberpunk-background {
+  position: relative;
+  z-index: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   h1 {

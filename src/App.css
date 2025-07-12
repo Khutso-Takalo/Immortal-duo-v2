@@ -1,0 +1,71 @@
+/* Global App Styles */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Fix for potential grey box accessibility tooltips */
+[title]:hover::after {
+  display: none !important;
+}
+
+/* Remove default browser tooltip styling */
+[title] {
+  position: relative;
+}
+
+/* Prevent unwanted tooltip boxes */
+*[title]:hover::before,
+*[title]:hover::after {
+  display: none !important;
+}
+
+/* Ensure proper cyberpunk background */
+.cyberpunk-background {
+  background: var(--cyber-black, #090909);
+  color: var(--text-white, #ffffff);
+}
+
+/* Fix for any phantom elements */
+.app-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Accessibility improvements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Fix for emphasized content warning */
+em, .emphasized {
+  font-style: italic;
+  color: var(--neon-blue, #00f0ff);
+}
+
+/* Remove any unwanted grey backgrounds */
+* {
+  box-sizing: border-box;
+}
+
+*:where(:not(iframe)):not(img):not(svg):not(video):not(audio):not(canvas) {
+  background-color: transparent;
+}
+
+/* Fix for browser default styling issues */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
